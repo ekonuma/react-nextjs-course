@@ -9,7 +9,11 @@ const profile = [
 const Example = () => {
   return (
     <div>
-      <Container title="Childrenとは？" />
+      <Container title="Childrenとは？">
+        [
+        <Profile key={profile[0].name} {...profile[0]} />
+        <Profile key={profile[1].name} {...profile[1]} />]
+      </Container>
     </div>
   );
 };
