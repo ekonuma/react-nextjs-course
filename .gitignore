@@ -1,2 +1,2 @@
-/react-basic/basic-project/node_modules
-/react-basic/06_control_and_form/node_modules
+/react-basic/basic-project/node_modules/**
+/react-basic/06_control_and_form/node_modules/**
