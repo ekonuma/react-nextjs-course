@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Example = () => {
-  const animals = ["Dog", "Cat", "Rat"];
+  const animals = ["Dog", null, "Cat", "Rat"];
 
   const [filterVal, setFilterVal] = useState("");
 
@@ -15,12 +15,16 @@ const Example = () => {
       <ul>
         {animals
           .filter((animal) => {
-            const isMatch = animal.indexOf(filterVal) !== -1;
-            console.log(animal.indexOf(filterVal));
+            const animalSearch = animal ?? "";
+            const isMatch = animalSearch.indexOf(filterVal) !== -1;
             return isMatch;
           })
           .map((animal) => (
-            <li key={animal}>{animal}</li>
+            //<li key={animal}>{animal === "Dog" ? animal + "★" : animal}</li>
+            <li key={animal}>
+              {animal ?? "null,undefinedでした"}
+              {animal === "Dog" && "★"}
+            </li>
           ))}
       </ul>
     </>
