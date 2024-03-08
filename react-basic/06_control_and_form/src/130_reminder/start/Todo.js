@@ -1,5 +1,8 @@
+import Form from "./components/Form";
+import List from "./components/List";
+import { useState } from "react";
 const Todo = () => {
-  const todosList = [
+  const todoList = [
     {
       id: 1,
       content: "店予約する",
@@ -13,4 +16,27 @@ const Todo = () => {
       content: "郵便出す",
     },
   ];
+
+  const [todoListVal, setTodoList] = useState(todoList);
+  const removeTask = (e) => {
+    const filteredTodos = todoListVal.filter(
+      (task) => e.target.value != task.id,
+    );
+    setTodoList(filteredTodos);
+  };
+
+  const addTask = (e) => {
+    let updatedTask = todoList;
+    updatedTask.push(e);
+    setTodoList(updatedTask);
+  };
+
+  return (
+    <>
+      <List todoList={todoList} removeTask={removeTask} />
+      <Form addTask={addTask} />
+    </>
+  );
 };
+
+export default Todo;
