@@ -25,15 +25,19 @@ const Todo = () => {
     setTodoList(filteredTodos);
   };
 
-  const addTask = (e) => {
-    let updatedTask = todoList;
-    updatedTask.push(e);
+  const addTask = (newTask) => {
+    let updatedTask = [...todoListVal];
+    updatedTask.push(newTask);
+    console.log(updatedTask);
     setTodoList(updatedTask);
   };
 
   return (
     <>
-      <List todoList={todoList} removeTask={removeTask} />
+      <div>
+        <h2>Reminder</h2>
+      </div>
+      <List todoList={todoListVal} removeTask={removeTask} />
       <Form addTask={addTask} />
     </>
   );

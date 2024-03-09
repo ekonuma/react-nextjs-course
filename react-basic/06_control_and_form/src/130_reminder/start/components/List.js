@@ -4,10 +4,15 @@ const List = ({ todoList, removeTask }) => {
       {todoList.map((task) => (
         <>
           <div>
-            <button id={task.id} value={task.id} onClick={removeTask}>
+            <button
+              key={task.id}
+              id={task.id}
+              value={task.id}
+              onClick={removeTask}
+            >
               完了
             </button>
-            {task.content}
+            <label>{task.content}</label>
           </div>
         </>
       ))}
