@@ -15,11 +15,23 @@ const Example = () => {
     cursor: pointer;
     background: ${({ isSelected }) => (isSelected ? "pink" : "")};
   `;
+  const OrangeBtn = styled(StyledBtn)`
+    background-color: orange;
+    :hover {
+      color: red;
+    }
+    span {
+      font-size: 2em;
+    }
+  `;
   return (
     <>
       <StyledBtn isSelected={isSelected} onClick={clickHandler}>
-        ボタン
+        <span>ボタン</span>
       </StyledBtn>
+      <OrangeBtn isSelected={isSelected} onClick={clickHandler}>
+        <span>ボタン</span>
+      </OrangeBtn>
       <div style={{ textAlign: "center" }}>
         {isSelected && "クリックされました。"}
       </div>
