@@ -13,7 +13,10 @@ import Modal from "./components/Modal";
 それらの制限なく、子要素が親要素を「飛び出して」表示する必要があるときにcreatePortalを使うのが有効です。
 モーダル、ポップアップ、トーストは使用の代表例です。
 */
-
+const ModalPortal = ({ children }) => {
+  const target = document.querySelector(".container.start");
+  return createPortal(children, target);
+};
 const Example = () => {
   const [modalOpen, setModalOpen] = useState(false);
   return (
@@ -27,7 +30,11 @@ const Example = () => {
       >
         モーダルを表示する
       </button>
-      {modalOpen && <Modal handleCloseClick={() => setModalOpen(false)} />}
+      {modalOpen && (
+        <ModalPortal>
+          <Modal handleCloseClick={() => setModalOpen(false)} />
+        </ModalPortal>
+      )}
     </div>
   );
 };
