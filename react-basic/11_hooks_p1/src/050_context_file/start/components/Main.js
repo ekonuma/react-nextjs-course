@@ -1,6 +1,6 @@
 import { useTheme } from "../context/ThemeContext";
 const Main = () => {
-  const [theme] = useTheme();
+  const theme = useTheme();
   return (
     <>
       <main className={`content-${theme}`}>
