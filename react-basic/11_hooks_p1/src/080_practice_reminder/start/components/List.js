@@ -1,19 +1,16 @@
-const List = ({todos, deleteTodo}) => {
-    const complete = (id) => {
-        deleteTodo(id)
-    }
-    return (
-        <div>
-            {todos.map(todo => {
-                return (
-                    <div key={todo.id}>
-                        <button onClick={() => complete(todo.id)}>完了</button>
-                        <span>{todo.content}</span>
-                    </div>
-                )
-            })}
-        </div>
-    );
-}
+import { useTodoContext } from "../context/TodoContext";
+import Item from "./Item";
+
+const List = () => {
+  const todos = useTodoContext();
+  return (
+    <div>
+      {todos.map((todo) => (
+        <Item todo={todo} />
+      ))}
+    </div>
+  );
+};
 
 export default List;
+
